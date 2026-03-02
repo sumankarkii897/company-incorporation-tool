@@ -8,7 +8,8 @@ exports.addShareholders = async (req,res)=> {
         }
         await Shareholder.createMany(shareholders);
         res.status(201).json({
-            message:"Shareholders added successfully"
+            message:"Shareholders added successfully",
+            shareholders
 
         })
     } catch (error) {

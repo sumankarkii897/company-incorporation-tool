@@ -5,7 +5,7 @@ exports.createCompany = async (req, res) => {
         const company = await Company.create(req.body);
         res.status(201).json({
             message:"Company created successfully",
-            // company
+            company
         })
     } catch (error) {
         res.json({

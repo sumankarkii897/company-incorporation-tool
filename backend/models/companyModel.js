@@ -7,7 +7,7 @@ exports.create = async (company)=> {
 }
 
 exports.getAll = async ()=> {
-    const query = "SELECT c.*, GROUP_CONCAT(JSON_OBJECT('id', s.id, 'first_name', s.first_name, 'last_name', s.last_name)) AS shareholders FROM companies c LEFT JOIN shareholders s ON c.id = s.company_id GROUP BY c.id";
+    const query = "SELECT c.*, GROUP_CONCAT(JSON_OBJECT('id', s.id, 'first_name', s.first_name, 'last_name', s.last_name, 'nationality', s.nationality)) AS shareholders FROM companies c LEFT JOIN shareholders s ON c.id = s.company_id GROUP BY c.id";
     const [rows] = await db.query(query);
 
     const results = rows.map( row => {
